@@ -56,7 +56,7 @@ class PluginBehaviorsITILSolution {
           && ($soluce->input['itemtype'] == 'Ticket')) {
 
          if ($config->getField('is_ticketsolutiontype_mandatory')
-             && (!isset($soluce->input['solutiontypes_id'])
+             && (empty($soluce->input['solutiontypes_id'])
                  || $soluce->input['solutiontypes_id'] == 0)) {
             $soluce->input = false;
             Session::addMessageAfterRedirect(__("Type of solution is mandatory before ticket is solved/closed",
